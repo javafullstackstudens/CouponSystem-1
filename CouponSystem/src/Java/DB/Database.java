@@ -1,18 +1,10 @@
 package Java.DB;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.time.LocalDate;
-
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import Java.JavaBeans.Company;
-import Java.JavaBeans.Coupon;
-import Java.JavaBeans.Customer;
 
 
 
