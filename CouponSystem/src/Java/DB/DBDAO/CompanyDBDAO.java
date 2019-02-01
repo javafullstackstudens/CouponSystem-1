@@ -11,11 +11,15 @@ import Java.JavaBeans.*;
 
 
 public class CompanyDBDAO implements CompanyDAO {
+	
+	/*
+	@Author - Oriel
+	*/
 
 	
 	// Attributes
 	
-	Connection conn;
+	private Connection conn;
 	
 
 	
@@ -25,8 +29,8 @@ public class CompanyDBDAO implements CompanyDAO {
 	public void insertCompany(Company company) throws Exception {
 		
 		conn = DriverManager.getConnection(Utils.getDBUrl());
-		String sql = "INSERT INTO COMPANY (COMP_NAME,PASSWORD,EMAIL)  VALUES(?,?,?)";
-		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		String query = "INSERT INTO COMPANY (COMP_NAME,PASSWORD,EMAIL)  VALUES(?,?,?)";
+		try (PreparedStatement pstmt = conn.prepareStatement(query)) {
 			pstmt.setString(1, company.getCompName());
 			pstmt.setString(2, company.getPassword());
 			pstmt.setString(3, company.getEmail());
@@ -42,7 +46,8 @@ public class CompanyDBDAO implements CompanyDAO {
 	
 
 	@Override
-	//**This method remove an company by ID key  **//
+	
+	// Remove method by ID
 	public void removeCompany(Company company) throws Exception {
 		// TODO Auto-generated method stub
 		conn = DriverManager.getConnection(Utils.getDBUrl());
@@ -73,7 +78,7 @@ public class CompanyDBDAO implements CompanyDAO {
 	}
 
 	@Override
-	public Coupon getCompany(int id) throws Exception {
+	public Coupon getCompany(long id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

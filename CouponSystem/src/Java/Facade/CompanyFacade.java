@@ -6,6 +6,10 @@ import Java.JavaBeans.Company;
 import Java.JavaBeans.Coupon;
 
 public class CompanyFacade {
+	
+	/*
+	@Author - Oriel
+	*/
 
 	private CompanyDBDAO compDAO = new CompanyDBDAO();
 	private Company company;
