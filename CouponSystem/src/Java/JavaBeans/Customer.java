@@ -2,8 +2,7 @@ package Java.JavaBeans;
 
 import java.util.ArrayList;
 
-
-/*
+/**
 @Author - Oriel
 */
 

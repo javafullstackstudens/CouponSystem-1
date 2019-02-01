@@ -1,13 +1,15 @@
 package Java.DB.DBDAO;
 
 import java.sql.Connection;
+
+
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
+
 import java.util.Set;
 
 import javax.swing.JOptionPane;
@@ -19,11 +21,11 @@ import Java.JavaBeans.Coupon;
 import Java.JavaBeans.CouponType;
 import Java.Main.Utils;
 
+/**
+@Author - Oriel
+*/
+
 public class CouponDBDAO implements CouponDAO {
-	
-	/*
-	@Author - Oriel
-	*/
 	
 	
 	//Attributes

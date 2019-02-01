@@ -3,8 +3,7 @@ package Java.Main;
 
 
 import Java.DB.DBDAO.CouponDBDAO;
-import Java.JavaBeans.Coupon;
-import Java.JavaBeans.CouponType;
+import Java.JavaBeans.*;
 
 public class Test {
 	
@@ -18,6 +17,14 @@ public class Test {
         System.out.println( Utils.getExpiredDate());
        // couponDB.createCoupon(c3);
        couponDB.getCoupon(15);
+       couponDB.removeCoupon(c3);
+       /**
+        * Log
+        */
+       
+       Coupon c1 = new Coupon();
+   
+      
 		
 	}
 

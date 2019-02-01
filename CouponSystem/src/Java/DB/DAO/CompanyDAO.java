@@ -2,12 +2,12 @@ package Java.DB.DAO;
 import java.util.Set;
 import Java.JavaBeans.*;
 
+/**
+@Author - Oriel
+*/
+
 public interface CompanyDAO {
 	
-	/*
-	@Author - Oriel
-	*/
-      
 
 		void insertCompany(Company company) throws Exception;
 

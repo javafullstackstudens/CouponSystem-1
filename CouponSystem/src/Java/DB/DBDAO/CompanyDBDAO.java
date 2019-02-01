@@ -9,12 +9,14 @@ import Java.Main.*;
 import Java.DB.DAO.CompanyDAO;
 import Java.JavaBeans.*;
 
+/**
+@Author - Oriel
+*/
+
 
 public class CompanyDBDAO implements CompanyDAO {
 	
-	/*
-	@Author - Oriel
-	*/
+	
 
 	
 	// Attributes

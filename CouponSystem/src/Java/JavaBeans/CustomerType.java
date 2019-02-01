@@ -1,10 +1,11 @@
 package Java.JavaBeans;
 
+/**
+@Author - Oriel
+*/
+
 public enum CustomerType {
 
-	/*
-	 * @Author - Oriel
-	 */
 	
 	
 	REGULAR, ADMIN, COMPANY;

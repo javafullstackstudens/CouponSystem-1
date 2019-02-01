@@ -4,11 +4,13 @@ import java.util.Set;
 
 import Java.JavaBeans.Coupon;
 
+/**
+@Author - Oriel
+*/
+
 public interface CouponDAO {
 
-	/*
-	@Author - Oriel
-	*/
+	
 
 	void createCoupon(Coupon coupon) throws Exception;
 
