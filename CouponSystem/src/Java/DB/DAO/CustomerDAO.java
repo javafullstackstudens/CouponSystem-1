@@ -2,11 +2,12 @@ package Java.DB.DAO;
 import java.util.Set;
 import Java.JavaBeans.*;
 
+/**
+@Author - Oriel
+*/
+
 public interface CustomerDAO {
 
-	/*
-	@Author - Oriel
-	*/
 	
 	void insertCustomer(Customer customer) throws Exception;
 

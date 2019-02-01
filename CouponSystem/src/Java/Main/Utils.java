@@ -2,12 +2,13 @@ package Java.Main;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+@Author - Oriel
+*/
+
 
 public class Utils {
 	
-	/*
-	@Author - Oriel
-	*/
     
     public static Date getCurrentDate() {
     LocalDate localDate = LocalDate.now();

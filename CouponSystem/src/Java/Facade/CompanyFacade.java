@@ -1,15 +1,18 @@
 package Java.Facade;
 
 import java.util.Set;
+
+
 import Java.DB.DBDAO.CompanyDBDAO;
 import Java.JavaBeans.Company;
 import Java.JavaBeans.Coupon;
 
+/**
+@Author - Oriel
+*/
+
 public class CompanyFacade {
 	
-	/*
-	@Author - Oriel
-	*/
 
 	private CompanyDBDAO compDAO = new CompanyDBDAO();
 	private Company company;

@@ -1,13 +1,14 @@
 package Java.JavaBeans;
 import java.util.Date;
 
-/*
- * @Author - Oriel
+/**
+ * @author - Oriel
  */
 
 
 public class Coupon {
-
+	
+	
 	// Attributes 
 	
 	private long id;
@@ -19,12 +20,29 @@ public class Coupon {
 	private String message;
 	private double price;
 	private String image;
-	private String getStringType;
 	
-	// Ctors
+	
+	
+	
+	/**
+	 * @param no @param - an empty Constructor
+	 */
 	
 	public Coupon() {
 	}
+	
+	/**
+	 * @param id - The Coupon ID
+	 * @param title - The title of the Coupon
+	 * @param startDate -  The date the Coupon was bought
+	 * @param endDate - The date that the Coupon will be expired
+	 * @param amount - The amount that you get from buying the Coupon
+	 * @param CouponType - Gives you the specific type of the Coupon
+	 * @param message - The description of the Coupon
+	 * @param price - The price for buying the Coupon
+	 * @param image - The Local\URL path of the Coupon image
+	 * @param
+	 */
 	
 	public Coupon(long id, String title, Date startdate, Date enddate, int amount, CouponType CouponType, String message, double price, String image) {
 		this.id = id;
@@ -41,9 +59,11 @@ public class Coupon {
 	
 	// Methods
 	
+
 	public long getId() {
 		return id;
 	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -110,16 +130,6 @@ public class Coupon {
 		}
 
 	
-	public String getGetStringType() {
-		return getStringType;
-	}
-
-	public void setGetStringType(String getStringType) {
-		this.getStringType = getStringType;
-	}
-	
-	
-
 	
 	
 }

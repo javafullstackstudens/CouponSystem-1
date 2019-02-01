@@ -10,8 +10,9 @@ import javax.swing.JPanel;
 
 public class Database {
 
-	/*
-	 * Singleton class - Author - Oriel
+	/**
+	 * @author - Oriel 
+	 * @category Singleton class 
 	 */
 	
 	private static Database instance = new Database();

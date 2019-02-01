@@ -10,13 +10,13 @@ import Java.JavaBeans.Coupon;
 import Java.JavaBeans.Customer;
 import Java.Main.Utils;
 
+/**
+@Author - Oriel
+*/
 
 
 public class CustomerDBDAO implements CustomerDAO {
 	
-	/*
-	@Author - Oriel
-	*/
 	
 	
 	//Attributes
