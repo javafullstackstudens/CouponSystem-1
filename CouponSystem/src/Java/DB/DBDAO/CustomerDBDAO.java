@@ -14,10 +14,14 @@ import Java.Main.Utils;
 
 public class CustomerDBDAO implements CustomerDAO {
 	
+	/*
+	@Author - Oriel
+	*/
+	
 	
 	//Attributes
 	
-	Connection conn;
+	private Connection conn;
 
 	
 	
@@ -28,9 +32,9 @@ public class CustomerDBDAO implements CustomerDAO {
 public void insertCustomer(Customer customer) throws Exception{
 		
 		conn = DriverManager.getConnection(Utils.getDBUrl());
-        String sql = "INSERT INTO CUSTOMER (CUST_NAME,PASSWORD) VALUES (?,?)";
+        String query = "INSERT INTO CUSTOMER (CUST_NAME,PASSWORD) VALUES (?,?)";
         try {
-		PreparedStatement pstmt = conn.prepareStatement(sql);
+		PreparedStatement pstmt = conn.prepareStatement(query);
 		pstmt.setString(1, customer.getCustomerName());
 		pstmt.setString(2, customer.getPassword());
 		pstmt.executeUpdate();
@@ -55,7 +59,7 @@ public void insertCustomer(Customer customer) throws Exception{
 	}
 
 	@Override
-	public Coupon getCustomer(int id) throws Exception {
+	public Coupon getCustomer(long id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

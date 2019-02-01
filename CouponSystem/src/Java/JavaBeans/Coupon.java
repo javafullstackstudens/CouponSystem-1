@@ -19,6 +19,7 @@ public class Coupon {
 	private String message;
 	private double price;
 	private String image;
+	private String getStringType;
 	
 	// Ctors
 	
@@ -97,10 +98,24 @@ public class Coupon {
 	
 
 	@Override
-	public String toString() {
-		return "Coupon [id=" + id + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", amount=" + amount + ", couponType=" + type + ", message=" + message + ", price=" + price
-				+ ", image=" + image + "]";
+	// ToString to display coupon's details
+		public String toString() {
+			return "Id:"+getId()+
+					", Title:"+getTitle()+
+					", Type:"+getType()+
+					", Start:"+getStartDate()+
+					", End:"+getEndDate()+
+					", Amount:"+getAmount()+
+					", Price:"+getPrice();
+		}
+
+	
+	public String getGetStringType() {
+		return getStringType;
+	}
+
+	public void setGetStringType(String getStringType) {
+		this.getStringType = getStringType;
 	}
 	
 	

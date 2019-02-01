@@ -1,5 +1,7 @@
 package Java.JavaBeans;
+
 import java.util.ArrayList;
+
 
 /*
 @Author - Oriel
@@ -13,7 +15,7 @@ public class Customer {
 	private long id;
 	private String CustomerName;
 	private String password;
-	ArrayList<Coupon> coupons = new ArrayList<Coupon>();
+	private ArrayList<Coupon> coupons = new ArrayList<Coupon>();
 	
 	
 	// Ctors
@@ -31,7 +33,7 @@ public class Customer {
 	
 	
 	
-    // Methods
+    // Getters & Setters 
 	
 	public String getPassword() {
 		return password;
