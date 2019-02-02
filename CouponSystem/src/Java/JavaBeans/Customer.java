@@ -19,8 +19,18 @@ public class Customer {
 	
 	// Ctors
 	
+	/**
+	 * @param no @param - an empty Constructor
+	 */
+	
 	public Customer() {
 	}
+	
+	/**
+	 * @param id - The Customer ID
+	 * @param password - The password for login to CustomerUI
+	 * @param email - The email for login to CustomerUI
+	 */
 	
 	public Customer(long id, String name, String pass) {
 		this.id = id;
