@@ -5,8 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Set;
+
+import javax.swing.JPanel;
+
+import org.apache.derby.client.am.SQLExceptionFactory;
+
 import Java.Main.*;
 import Java.DB.DAO.CompanyDAO;
+import Java.Exceptions.RemoveCompanyException;
 import Java.JavaBeans.*;
 
 /**
@@ -22,7 +28,7 @@ public class CompanyDBDAO implements CompanyDAO {
 	// Attributes
 	
 	private Connection conn;
-	
+	private final JPanel panel = new JPanel();
 
 	
 	// Methods that DBDAO Must use from DAO
@@ -50,7 +56,7 @@ public class CompanyDBDAO implements CompanyDAO {
 	@Override
 	
 	// Remove method by ID
-	public void removeCompany(Company company) throws Exception {
+	public void removeCompany(Company company) throws RemoveCompanyException, Exception {
 		// TODO Auto-generated method stub
 		conn = DriverManager.getConnection(Utils.getDBUrl());
 		String sql = "DELETE FROM COMPANY WHERE id=?";
@@ -62,12 +68,14 @@ public class CompanyDBDAO implements CompanyDAO {
 			conn.commit();
 			System.out.println(company.getCompName()+" successfully Removed from the DB");
 		} catch (SQLException e) {
+			throw new RemoveCompanyException(company);
+		}
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				throw new Exception(e1.getMessage());
 			}
-		} finally {
+		finally {
 			conn.close();
 		}
 		
