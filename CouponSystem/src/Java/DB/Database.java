@@ -36,7 +36,7 @@ public class Database {
 	}
 
 	// the local Port 3301
-	// Name of database - JBDB
+	// Name of database - MyDB
 	
 	public static String getDBUrl() {
 		return "jdbc:derby://localhost:3301/MyDB;create=true";
@@ -52,7 +52,7 @@ public class Database {
 		// Table 1 creation (Company)
         try {
     	    java.sql.Statement stmt = conn.createStatement();
-    		sql = "create table Company("
+    		sql = "create table Companies("
     				+ "ID bigint NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1), "
     				+ "COMP_NAME varchar(30) not null, "
     				+ "PASSWORD varchar(30) not null," 
@@ -60,7 +60,6 @@ public class Database {
     		stmt.executeUpdate(sql);
     		JOptionPane.showMessageDialog(panel, "Table Company created successfully!");	
 		} catch (SQLException e) {
-			// TODO: handle exception
 			JOptionPane.showMessageDialog(panel, "Table Company already exist!");
 			
 		}
@@ -70,7 +69,7 @@ public class Database {
 		// Table 2 creation (Customer)
 		try {
 		java.sql.Statement stmt2 = conn.createStatement();
-		sql = "create table Customer("
+		sql = "create table Customers("
 				+ "ID bigint not null primary key generated always as identity(start with 1, increment by 1), "
 				+ "CUST_NAME varchar(30) not null, " 
 				+ "PASSWORD varchar(30) not null)" ;
@@ -84,8 +83,7 @@ public class Database {
 		try {
 		java.sql.Statement stmt3 = conn.createStatement();
 		
-		System.out.println("test");
-		sql = "create table Coupon("
+		sql = "create table Coupons("
 				+ "ID bigint not null primary key generated always as identity(start with 1, increment by 1), "
 				+ "TITLE varchar(30) not null, " 
 				+ "START_DATE DATE not null, " 
@@ -96,9 +94,7 @@ public class Database {
 				+ "PRICE double not null,"
 				+ "IMAGE varchar(200) not null,"
 		        + "CompanyID bigint not null)";
-		System.out.println("test2");
 		stmt3.executeUpdate(sql);
-		System.out.println("test3");
 		JOptionPane.showMessageDialog(panel, "Table Coupon created successfully!");
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(panel, "Table Coupon already exist!");

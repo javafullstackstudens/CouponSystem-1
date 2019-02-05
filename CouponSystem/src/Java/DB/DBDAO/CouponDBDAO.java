@@ -37,10 +37,10 @@ public class CouponDBDAO implements CouponDAO {
 	@Override
 	public void createCoupon(Coupon coupon) throws Exception {
 		conn = DriverManager.getConnection(Utils.getDBUrl());
-		String query = "INSERT INTO COUPON (TITLE,START_DATE,END_DATE,AMOUNT,TYPE,MESSAGE,PRICE,IMAGE,COMPANYID) VALUES(?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO Coupons (TITLE,START_DATE,END_DATE,AMOUNT,TYPE,MESSAGE,PRICE,IMAGE,COMPANYID) VALUES(?,?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(query);
-
+     
 			pstmt.setString(1, coupon.getTitle());
 			pstmt.setDate(2, (Date) coupon.getStartDate());
 			pstmt.setDate(3, (Date) coupon.getEndDate());
@@ -50,12 +50,14 @@ public class CouponDBDAO implements CouponDAO {
 			pstmt.setDouble(7, coupon.getPrice());
 			pstmt.setString(8, coupon.getImage());
 			pstmt.setLong(9 , coupon.getCompanyId());
+			
 			pstmt.executeUpdate();
 			pstmt.close();
+			JOptionPane.showConfirmDialog(panel, "Coupon " + coupon.getTitle() + "was created successfully on table Coupon");
 			// Getting Coupon ID
 			
 			long id = 0;
-			query = "SELECT ID FROM Coupon WHERE TITLE=?";
+			query = "SELECT ID FROM Coupons WHERE TITLE=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, coupon.getTitle());
 			ResultSet rs = pstmt.executeQuery();
@@ -69,7 +71,7 @@ public class CouponDBDAO implements CouponDAO {
 			pstmt.setLong(2, id);
 			pstmt.executeUpdate();
 			pstmt.close();
-			JOptionPane.showConfirmDialog(panel, "Coupon " + coupon.getTitle() + "was created successfully");
+			JOptionPane.showConfirmDialog(panel, "Coupon " + coupon.getTitle() + "was created successfully on table Company_Coupon");
 
 		} catch (SQLException e) {
 			System.out.println(e.getLocalizedMessage());
@@ -78,13 +80,15 @@ public class CouponDBDAO implements CouponDAO {
 			conn.close();
 		}
 	}
+	
 
 	@Override
 	public void removeCoupon(Coupon coupon) throws Exception {
 		conn = DriverManager.getConnection(Utils.getDBUrl());
 		try {
 			String query = "DELETE FROM Customer_Coupon WHERE COUPON_ID=?;"
-					+ "DELETE FROM Company_Coupon WHERE COUPON_ID=?;" + "DELETE FROM Coupon WHERE ID=?";
+					+ "DELETE FROM Company_Coupon WHERE COUPON_ID=?;" 
+					+ "DELETE FROM Coupons WHERE ID=?";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setLong(1, coupon.getId());
 			pstmt.setLong(2, coupon.getId());
@@ -116,7 +120,7 @@ public class CouponDBDAO implements CouponDAO {
 		conn = DriverManager.getConnection(Utils.getDBUrl());
 		Coupon coupon = new Coupon();
 		try (Statement stm = conn.createStatement()) {
-			String query = "SELECT * FROM Coupon WHERE ID=" + id;
+			String query = "SELECT * FROM Coupons WHERE ID=" + id;
 			ResultSet rs = stm.executeQuery(query);
 			rs.next();
 

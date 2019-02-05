@@ -36,8 +36,9 @@ public class CompanyDBDAO implements CompanyDAO {
 	@Override
 	public void createCompany(Company company) throws Exception {
 		
+		
 		conn = DriverManager.getConnection(Utils.getDBUrl());
-		String query = "INSERT INTO COMPANY (COMP_NAME,PASSWORD,EMAIL)  VALUES(?,?,?)";
+		String query = "INSERT INTO Companies (COMP_NAME,PASSWORD,EMAIL)  VALUES(?,?,?)";
 		try (PreparedStatement pstmt = conn.prepareStatement(query)) {
 			pstmt.setString(1, company.getCompName());
 			pstmt.setString(2, company.getPassword());
@@ -59,7 +60,7 @@ public class CompanyDBDAO implements CompanyDAO {
 	public void removeCompany(Company company) throws RemoveCompanyException, Exception {
 		// TODO Auto-generated method stub
 		conn = DriverManager.getConnection(Utils.getDBUrl());
-		String sql = "DELETE FROM COMPANY WHERE id=?";
+		String sql = "DELETE FROM companies WHERE id=?";
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			conn.setAutoCommit(false);
