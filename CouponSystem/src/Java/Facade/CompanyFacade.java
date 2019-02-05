@@ -24,8 +24,8 @@ public class CompanyFacade {
 	public CompanyFacade() {
 	}
 
-	public void insertCompany(Company company) throws Exception {
-		compDAO.insertCompany(company);
+	public void createCompany(Company company) throws Exception {
+		compDAO.createCompany(company);
 	}
 
 	public void removeCompany(Company company) throws Exception {

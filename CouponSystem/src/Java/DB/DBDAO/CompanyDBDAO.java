@@ -34,7 +34,7 @@ public class CompanyDBDAO implements CompanyDAO {
 	// Methods that DBDAO Must use from DAO
 	
 	@Override
-	public void insertCompany(Company company) throws Exception {
+	public void createCompany(Company company) throws Exception {
 		
 		conn = DriverManager.getConnection(Utils.getDBUrl());
 		String query = "INSERT INTO COMPANY (COMP_NAME,PASSWORD,EMAIL)  VALUES(?,?,?)";
@@ -99,6 +99,9 @@ public class CompanyDBDAO implements CompanyDAO {
 		return null;
 	}
 
+
+
+	
 	
 
 	

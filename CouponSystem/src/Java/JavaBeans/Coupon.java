@@ -20,7 +20,7 @@ public class Coupon {
 	private String message;
 	private double price;
 	private String image;
-	
+	private long companyId;
 	
 	
 	
@@ -41,10 +41,10 @@ public class Coupon {
 	 * @param message - The description of the Coupon
 	 * @param price - The price for buying the Coupon
 	 * @param image - The Local\URL path of the Coupon image
-	 * @param
+	 * @param CompanyID - The ID of the company that created the coupon
 	 */
 	
-	public Coupon(long id, String title, Date startdate, Date enddate, int amount, CouponType CouponType, String message, double price, String image) {
+	public Coupon(long id, String title, Date startdate, Date enddate, int amount, CouponType CouponType, String message, double price, String image, long companyId) {
 		this.id = id;
 		this.title = title;
 		this.startDate = startdate;
@@ -54,6 +54,8 @@ public class Coupon {
 		this.message = message;
 		this.price = price;
 		this.image = image;
+		this.companyId = companyId;
+	
 	}
 	
 	
@@ -100,6 +102,14 @@ public class Coupon {
 	public double getPrice() {
 		return price;
 	}
+	public long getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(long companyId) {
+		this.companyId = companyId;
+	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}

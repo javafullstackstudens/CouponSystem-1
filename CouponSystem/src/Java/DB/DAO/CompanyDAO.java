@@ -9,7 +9,7 @@ import Java.JavaBeans.*;
 public interface CompanyDAO {
 	
 
-		void insertCompany(Company company) throws Exception;
+		void createCompany(Company company) throws Exception;
 
 		void removeCompany(Company company) throws Exception;
 

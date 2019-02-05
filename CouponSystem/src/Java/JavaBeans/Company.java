@@ -37,11 +37,7 @@ public class Company {
 		this.email = email;
 		
 	}
-
-	/**
-	 * @
-	 * 
-	 */
+	
 
 	public long getId() {
 		return id;

@@ -11,51 +11,66 @@ import Java.JavaBeans.Customer;
 import Java.Main.Utils;
 
 /**
-@Author - Oriel
-*/
-
+ * @Author - Oriel
+ */
 
 public class CustomerDBDAO implements CustomerDAO {
-	
-	
-	
-	//Attributes
-	
+
+	// Attributes
+
 	private Connection conn;
 
-	
-	
-	
 	// Methods that DBDAO Must use from DAO
-	
+
 	@Override
-public void insertCustomer(Customer customer) throws Exception{
-		
+	public void insertCustomer(Customer customer) throws Exception {
+
 		conn = DriverManager.getConnection(Utils.getDBUrl());
-        String query = "INSERT INTO CUSTOMER (CUST_NAME,PASSWORD) VALUES (?,?)";
-        try {
-		PreparedStatement pstmt = conn.prepareStatement(query);
-		pstmt.setString(1, customer.getCustomerName());
-		pstmt.setString(2, customer.getPassword());
-		pstmt.executeUpdate();
-		System.out.println("Customer " + customer.getCustomerName() + " inserted successfully");
-        } catch (SQLException e) {
+		String query = "INSERT INTO CUSTOMER (CUST_NAME,PASSWORD) VALUES (?,?)";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, customer.getCustomerName());
+			pstmt.setString(2, customer.getPassword());
+			pstmt.executeUpdate();
+			System.out.println("Customer " + customer.getCustomerName() + " inserted successfully");
+		} catch (SQLException e) {
 			throw new Exception("Customer creation faild");
 		} finally {
 			conn.close();
 		}
 	}
+	
+	
+	
 
 	@Override
 	public void removeCustomer(Customer customer) throws Exception {
-		// TODO Auto-generated method stub
-		
+		conn = DriverManager.getConnection(Utils.getDBUrl());
+		try {
+			String query = "DELETE FROM Customer_Coupon WHERE COUPON_ID=?;"
+					+ "DELETE FROM Company_Coupon WHERE COUPON_ID=?;" + "DELETE FROM Coupon WHERE ID=?";
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setLong(1, customer.getId());
+			pstmt.setLong(2, customer.getId());
+			pstmt.setLong(3, customer.getId());
+			pstmt.executeUpdate();
+			pstmt.close();
+			System.out.println("Customer was removed from all 3 tables.");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			conn.close();
+		}
 	}
+	
+	
+	
+	
 
 	@Override
 	public void updateCustomer(Customer customer) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -69,8 +84,5 @@ public void insertCustomer(Customer customer) throws Exception{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
-	
 
 }
