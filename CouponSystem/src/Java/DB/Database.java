@@ -83,6 +83,8 @@ public class Database {
 		// Table 3 creation (Coupon)
 		try {
 		java.sql.Statement stmt3 = conn.createStatement();
+		
+		System.out.println("test");
 		sql = "create table Coupon("
 				+ "ID bigint not null primary key generated always as identity(start with 1, increment by 1), "
 				+ "TITLE varchar(30) not null, " 
@@ -92,8 +94,11 @@ public class Database {
 				+ "TYPE varchar(10) not null," 
 				+ "MESSAGE varchar(30) not null,"
 				+ "PRICE double not null,"
-				+ "IMAGE varchar(200) not null)";
+				+ "IMAGE varchar(200) not null,"
+		        + "CompanyID bigint not null)";
+		System.out.println("test2");
 		stmt3.executeUpdate(sql);
+		System.out.println("test3");
 		JOptionPane.showMessageDialog(panel, "Table Coupon created successfully!");
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(panel, "Table Coupon already exist!");
