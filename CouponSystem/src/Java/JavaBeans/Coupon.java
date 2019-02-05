@@ -25,7 +25,7 @@ public class Coupon {
 	
 	
 	/**
-	 * @param no @param - an empty Constructor
+	 * @param no @param - empty Constructor
 	 */
 	
 	public Coupon() {
