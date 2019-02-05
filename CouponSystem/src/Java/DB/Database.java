@@ -49,7 +49,7 @@ public class Database {
 		conn = DriverManager.getConnection(getDBUrl());
 		String sql;
 
-		// Table 1 creation (Company)
+		// Table 1 creation (Companies)
         try {
     	    java.sql.Statement stmt = conn.createStatement();
     		sql = "create table Companies("
@@ -66,7 +66,7 @@ public class Database {
 
 
 		
-		// Table 2 creation (Customer)
+		// Table 2 creation (Customers)
 		try {
 		java.sql.Statement stmt2 = conn.createStatement();
 		sql = "create table Customers("
@@ -105,8 +105,8 @@ public class Database {
 		try {
 		java.sql.Statement stmt4 = conn.createStatement();
 		sql = "create table Customer_Coupon("
-				+ "CUST_ID bigint not null REFERENCES Customer(ID),"
-				+ "COUPON_ID bigint not null REFERENCES Coupon(ID))";
+				+ "CUST_ID bigint not null REFERENCES Customers(ID),"
+				+ "COUPON_ID bigint not null REFERENCES Coupons(ID))";
 		stmt4.executeUpdate(sql);
 		JOptionPane.showMessageDialog(panel, "Table Customer_Coupon created successfully!");
 		} catch (SQLException e) {
@@ -118,8 +118,8 @@ public class Database {
 		try {
 		java.sql.Statement stmt5 = conn.createStatement();
 		sql = "create table Company_Coupon("
-				+ "COMP_ID bigint not null REFERENCES Company(ID),"
-				+ "COUPON_ID bigint not null REFERENCES Coupon(ID))";
+				+ "COMP_ID bigint not null REFERENCES Companies(ID),"
+				+ "COUPON_ID bigint not null REFERENCES Coupons(ID))";
 		stmt5.executeUpdate(sql);
 		JOptionPane.showMessageDialog(panel, "Table Company_Coupon created successfully!");
 		}catch (SQLException e) {
