@@ -10,7 +10,7 @@ public class Test {
 	public static void main(String[] args) throws Exception {
 		
 		
-	  Database.getDatabase();
+	 // Database.getDatabase();
 		
 	   Company company1 = new Company(1, "Fedrik", "12345", "moshe@fedrkik.com");
 	   Company company2 = new Company(2, "The Eucalyptus", "123456", "yaakov@theeucalyptus.com");
@@ -24,16 +24,17 @@ public class Test {
 		CouponDBDAO couponDBDAO = new CouponDBDAO();
 		CompanyFacade cf = new CompanyFacade();
 		
-		//cf.createCompany(company1);
-		//cf.createCompany(company2);
+		
+//		cf.createCompany(company1);
+//		cf.createCompany(company2);
 
 		
 		// System.out.println(Utils.getCurrentDate());
 		// System.out.println( Utils.getExpiredDate());
       //  cf.createCompany(company1);
-      //	couponDBDAO.createCoupon(coupon1);
-      //	couponDBDAO.createCoupon(coupon2);
-      //	couponDBDAO.createCoupon(coupon3);
+//       	couponDBDAO.createCoupon(coupon1);
+//       	couponDBDAO.createCoupon(coupon2);
+//      	couponDBDAO.createCoupon(coupon3);
 
 		// cf.createCompany(c1);
 
